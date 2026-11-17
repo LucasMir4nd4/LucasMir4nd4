@@ -1,4 +1,4 @@
-"""Gera os cards SVG do perfil (projetos, estatísticas e linguagens) direto da API do GitHub.
+"""Gera os cards SVG do perfil (projetos e linguagens) direto da API do GitHub.
 
 Roda no GitHub Actions; os SVGs vão para o branch `output` e são servidos pelo raw.githubusercontent.com,
 sem depender de serviços externos que caem ou ficam bloqueados por limite de uso.
@@ -7,7 +7,6 @@ import json
 import os
 import sys
 import urllib.request
-from datetime import date, timedelta
 from xml.sax.saxutils import escape
 
 USER = os.environ.get("GH_USER", "LucasMir4nd4")
@@ -22,6 +21,12 @@ PINS = {
     "promo-bot-admin": "Painel administrativo em Angular para um bot de ofertas desenvolvido em Spring Boot.",
     "halo-helper": "Extensão para o Google Chrome que agiliza o atendimento de chamados no HaloITSM.",
 }
+
+# Linguagem exibida no card quando a detectada pelo GitHub não representa o projeto
+PIN_LANGUAGE = {"MailPy": {"name": "Python", "color": "#3572A5"}}
+
+# Linguagens de marcação/estilo não entram no card de linguagens
+IGNORED_LANGUAGES = {"HTML", "CSS", "SCSS", "Less"}
 
 BG, BORDER, TITLE, TEXT, MUTED, ACCENT = "#0d1117", "#30363d", "#58a6ff", "#c9d1d9", "#8b949e", "#a371f7"
 FONT = "font-family:'Segoe UI',Ubuntu,'Helvetica Neue',Arial,sans-serif"
@@ -43,10 +48,6 @@ def gql(query, variables):
 QUERY = """
 query($login: String!) {
   user(login: $login) {
-    contributionsCollection {
-      totalCommitContributions
-      contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
-    }
     repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
       totalCount
       nodes {
@@ -81,7 +82,7 @@ def frame(w, h, body):
     )
 
 
-def pin_card(repo, desc):
+def pin_card(repo, desc, lang=None):
     lines = wrap(desc, 58)
     body = (
         f'<path transform="translate(22,22)" fill="{MUTED}" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/>'
@@ -89,7 +90,7 @@ def pin_card(repo, desc):
     )
     for i, line in enumerate(lines):
         body += f'<text x="22" y="{64 + i * 19}" fill="{TEXT}" font-size="13">{escape(line)}</text>'
-    lang = repo.get("primaryLanguage") or {}
+    lang = lang or repo.get("primaryLanguage") or {}
     x = 22
     if lang:
         body += f'<circle cx="{x + 6}" cy="117" r="6" fill="{lang.get("color") or MUTED}"/>'
@@ -100,47 +101,13 @@ def pin_card(repo, desc):
     return frame(420, 140, body)
 
 
-def streaks(days):
-    counts = [d["contributionCount"] for d in days]
-    longest = run = 0
-    for c in counts:
-        run = run + 1 if c else 0
-        longest = max(longest, run)
-    current = 0
-    i = len(counts) - 1
-    if counts and counts[i] == 0:  # o dia de hoje ainda pode não ter contribuição
-        i -= 1
-    while i >= 0 and counts[i]:
-        current += 1
-        i -= 1
-    return current, longest
-
-
-def stats_card(data):
-    cc = data["contributionsCollection"]
-    days = [d for w in cc["contributionCalendar"]["weeks"] for d in w["contributionDays"]]
-    current, longest = streaks(days)
-    rows = [
-        ("Contribuições no último ano", cc["contributionCalendar"]["totalContributions"]),
-        ("Commits no último ano", cc["totalCommitContributions"]),
-        ("Repositórios públicos", data["repositories"]["totalCount"]),
-        ("Sequência atual (dias)", current),
-        ("Maior sequência (dias)", longest),
-    ]
-    body = f'<text x="25" y="38" fill="{TITLE}" font-size="18" font-weight="600">Estatísticas no GitHub</text>'
-    for i, (label, value) in enumerate(rows):
-        y = 75 + i * 26
-        body += f'<circle cx="31" cy="{y - 5}" r="4" fill="{ACCENT}"/>'
-        body += f'<text x="45" y="{y}" fill="{TEXT}" font-size="14">{label}:</text>'
-        body += f'<text x="330" y="{y}" fill="{TEXT}" font-size="14" font-weight="700" text-anchor="end">{value}</text>'
-    return frame(360, 200, body)
-
-
 def langs_card(data):
     totals = {}
     for repo in data["repositories"]["nodes"]:
         for edge in repo["languages"]["edges"]:
             name = edge["node"]["name"]
+            if name in IGNORED_LANGUAGES:
+                continue
             prev = totals.get(name, (0, edge["node"]["color"]))
             totals[name] = (prev[0] + edge["size"], edge["node"]["color"] or MUTED)
     top = sorted(totals.items(), key=lambda kv: kv[1][0], reverse=True)[:8]
@@ -158,7 +125,7 @@ def langs_card(data):
         cy = 92 + (i // 2) * 26
         body += f'<circle cx="{cx + 5}" cy="{cy - 4}" r="5" fill="{color}"/>'
         body += f'<text x="{cx + 16}" y="{cy}" fill="{TEXT}" font-size="13">{escape(name)} <tspan fill="{MUTED}">{size / total * 100:.1f}%</tspan></text>'
-    return frame(360, 200, body)
+    return frame(360, 92 + ((len(top) + 1) // 2) * 26, body)
 
 
 def main():
@@ -171,9 +138,7 @@ def main():
             print(f"Aviso: repositório público '{name}' não encontrado, card ignorado")
             continue
         with open(f"{OUT}/pin-{name}.svg", "w", encoding="utf-8") as f:
-            f.write(pin_card(repo, desc))
-    with open(f"{OUT}/stats.svg", "w", encoding="utf-8") as f:
-        f.write(stats_card(data))
+            f.write(pin_card(repo, desc, PIN_LANGUAGE.get(name)))
     with open(f"{OUT}/langs.svg", "w", encoding="utf-8") as f:
         f.write(langs_card(data))
     print("Cards gerados em", OUT)

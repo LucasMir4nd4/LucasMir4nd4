@@ -60,10 +60,9 @@ public class LucasMiranda {
 
 ---
 
-## 📊 Estatísticas
+## 📊 Atividade
 
 <p align="center">
-  <img width="360" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/stats.svg" alt="Estatísticas no GitHub" />
   <img width="360" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/langs.svg" alt="Linguagens mais usadas" />
 </p>
 
