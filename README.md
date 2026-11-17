@@ -1,48 +1,48 @@
-<!-- HEADER -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1f6feb,100:7c3aed&height=200&section=header&text=Lucas%20Miranda&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Java%20Backend%20%E2%80%A2%20Automa%C3%A7%C3%A3o%20%E2%80%A2%20Integra%C3%A7%C3%B5es&descAlignY=58&descSize=18&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1f6feb,100:7c3aed&height=200&section=header&text=Lucas%20Miranda&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Back-end%20Java%20%E2%80%A2%20Automa%C3%A7%C3%A3o%20%E2%80%A2%20Integra%C3%A7%C3%B5es&descAlignY=58&descSize=18&animation=fadeIn" alt="Lucas Miranda — Back-end Java, Automação e Integrações" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/LucasMir4nd4">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=58A6FF&center=true&vCenter=true&width=600&lines=Ol%C3%A1%2C+eu+sou+o+Lucas+%F0%9F%91%8B;Java+%2B+Spring+Boot+%E2%98%95;Automatizo+tudo+que+%C3%A9+repetitivo+%F0%9F%A4%96;Estudante+de+ADS+na+S%C3%A3o+Judas+%F0%9F%8E%93" alt="Typing SVG" />
-  </a>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=58A6FF&center=true&vCenter=true&width=620&lines=Ol%C3%A1%2C+eu+sou+o+Lucas!+%F0%9F%91%8B;Back-end+com+Java+e+Spring+Boot+%E2%98%95;Automatizo+tarefas+repetitivas+%F0%9F%A4%96;Estudante+de+ADS+na+S%C3%A3o+Judas+%F0%9F%8E%93" alt="Olá, eu sou o Lucas! Back-end com Java e Spring Boot. Automatizo tarefas repetitivas. Estudante de ADS na São Judas." />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=LucasMir4nd4&color=1f6feb&style=flat-square&label=Visitas" />
-  <img src="https://img.shields.io/github/followers/LucasMir4nd4?style=flat-square&color=7c3aed&label=Seguidores" />
-  <img src="https://img.shields.io/badge/📍-Barueri%2FSP-0d1117?style=flat-square" />
+  <img src="https://img.shields.io/badge/📍%20Barueri%2C%20SP-0d1117?style=flat-square" alt="Barueri, SP" />
+  <img src="https://komarev.com/ghpvc/?username=LucasMir4nd4&color=1f6feb&style=flat-square&label=Visitas" alt="Visitas ao perfil" />
 </p>
 
 ---
 
 ## 🧑‍💻 Sobre mim
 
+Sou estudante de **Análise e Desenvolvimento de Sistemas** na Universidade São Judas Tadeu e trabalho como **Analista de Service Desk Júnior na Arklok**, onde também desenvolvo ferramentas internas de automação e integrações entre sistemas. Meu foco é o **desenvolvimento back-end com Java e Spring Boot**.
+
 ```java
 public class LucasMiranda {
 
-    String cargo      = "Analista de Service Desk Jr @ Arklok";
-    String formacao   = "Análise e Desenvolvimento de Sistemas — São Judas";
-    String foco       = "Desenvolvimento Backend Java";
-    String[] faco     = {
+    String role      = "Analista de Service Desk Júnior @ Arklok";
+    String education = "Análise e Desenvolvimento de Sistemas — São Judas";
+    String focus     = "Back-end com Java e Spring Boot";
+
+    String[] whatIDo = {
         "Ferramentas internas de automação",
-        "Integrações entre sistemas (Zendesk, HaloITSM)",
+        "Integrações entre sistemas (Zendesk e HaloITSM)",
         "Dashboards de acompanhamento de chamados",
-        "Bots e APIs REST com Spring Boot"
+        "APIs REST e bots com Spring Boot"
     };
-    String nasHorasVagas = "Arduino, ESP32, violão e banda 🎸";
+
+    String[] hobbies = { "Arduino e ESP32", "Violão", "Banda" };
 }
 ```
 
 ---
 
-## 🛠️ Stack
+## 🛠️ Tecnologias
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,spring,hibernate,postgres,docker,maven&theme=dark" /><br/>
-  <img src="https://skillicons.dev/icons?i=python,flask,angular,ts,js,tailwind&theme=dark" /><br/>
-  <img src="https://skillicons.dev/icons?i=git,github,linux,vscode,idea,arduino&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=java,spring,hibernate,postgres,docker,maven&theme=dark" alt="Java, Spring, Hibernate, PostgreSQL, Docker, Maven" /><br/>
+  <img src="https://skillicons.dev/icons?i=python,flask,angular,ts,js,tailwind&theme=dark" alt="Python, Flask, Angular, TypeScript, JavaScript, Tailwind" /><br/>
+  <img src="https://skillicons.dev/icons?i=git,github,linux,vscode,idea,arduino&theme=dark" alt="Git, GitHub, Linux, VS Code, IntelliJ, Arduino" />
 </p>
 
 ---
@@ -50,59 +50,27 @@ public class LucasMiranda {
 ## 🚀 Projetos em destaque
 
 <p align="center">
-  <a href="https://github.com/LucasMir4nd4/mini-bank-api">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=mini-bank-api&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/LucasMir4nd4/amazon-promo-bot">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=amazon-promo-bot&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/LucasMir4nd4/halo-helper">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=halo-helper&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/LucasMir4nd4/MailPy">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=MailPy&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/LucasMir4nd4/desafios-java">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=desafios-java&theme=tokyonight&hide_border=true" />
-  </a>
-  <a href="https://github.com/LucasMir4nd4/SnakeGameSpringBoot">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=LucasMir4nd4&repo=SnakeGameSpringBoot&theme=tokyonight&hide_border=true" />
-  </a>
+  <a href="https://github.com/LucasMir4nd4/mini-bank-api"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-mini-bank-api.svg" alt="mini-bank-api" /></a>
+  <a href="https://github.com/LucasMir4nd4/SnakeGameSpringBoot"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-SnakeGameSpringBoot.svg" alt="SnakeGameSpringBoot" /></a>
+  <a href="https://github.com/LucasMir4nd4/desafios-java"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-desafios-java.svg" alt="desafios-java" /></a>
+  <a href="https://github.com/LucasMir4nd4/MailPy"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-MailPy.svg" alt="MailPy" /></a>
+  <a href="https://github.com/LucasMir4nd4/promo-bot-admin"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-promo-bot-admin.svg" alt="promo-bot-admin" /></a>
+  <a href="https://github.com/LucasMir4nd4/halo-helper"><img width="400" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/pin-halo-helper.svg" alt="halo-helper" /></a>
 </p>
-
-| Projeto | O que é |
-|---|---|
-| 🏦 **mini-bank-api** | API bancária em Spring Boot (contas, transações) + [front](https://github.com/LucasMir4nd4/mini-bank-front) |
-| 🛒 **amazon-promo-bot** | Bot de ofertas de afiliados Amazon em Java/Spring Boot |
-| 🧩 **halo-helper** | Extensão Chrome integrada ao HaloITSM com backend Flask |
-| 📧 **MailPy** | App em Python/Flask que automatiza e-mails de liberação técnica |
-| ☕ **desafios-java** | Monorepo com desafios técnicos Java resolvidos |
 
 ---
 
 ## 📊 Estatísticas
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=LucasMir4nd4&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&locale=pt-br" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=LucasMir4nd4&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&locale=pt-br" />
+  <img width="360" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/stats.svg" alt="Estatísticas no GitHub" />
+  <img width="360" src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/langs.svg" alt="Linguagens mais usadas" />
 </p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=LucasMir4nd4&theme=tokyonight&hide_border=true&locale=pt_BR" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=LucasMir4nd4&theme=tokyo-night&hide_border=true&area=true" />
-</p>
-
----
-
-## 🐍 Contribuições
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/github-snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/github-snake.svg" alt="snake" />
+    <img src="https://raw.githubusercontent.com/LucasMir4nd4/LucasMir4nd4/output/github-snake.svg" alt="Animação da cobrinha percorrendo o gráfico de contribuições" />
   </picture>
 </p>
 
@@ -111,13 +79,13 @@ public class LucasMiranda {
 ## 📫 Contato
 
 <p align="center">
-  <a href="https://github.com/LucasMir4nd4"><img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <!-- Descomente e troque pelo seu link:
-  <a href="https://www.linkedin.com/in/SEU-USUARIO"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:SEU-EMAIL"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://github.com/LucasMir4nd4"><img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <!-- Descomente e troque pelos seus dados:
+  <a href="https://www.linkedin.com/in/SEU-USUARIO"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:SEU-EMAIL"><img src="https://img.shields.io/badge/E--mail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="E-mail" /></a>
   -->
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:1f6feb,100:0d1117&height=120&section=footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:1f6feb,100:0d1117&height=120&section=footer" alt="" />
 </p>
